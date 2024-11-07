@@ -4,37 +4,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css" type="text/css">
-    <script type="text/javascript" src="js/jquery-3.7.1.js"></script>
     <title>Document</title>
 </head>
 
 <body>
-    <!-- <div id="container">
-        <div class="card">
-            <button>Button One</button>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusantium, harum voluptatibus corrupti
-                voluptate alias ipsum pariatur officia saepe totam magnam fugiat corporis labore, itaque repudiandae,
-                minima unde quo odio. Quis?</p>
-        </div>
-        <div class="card">
-            <button>Button Two</button>
-        </div>
-    </div> -->
-    <div class="container">
-        <div class="box one"></div>
-        <div class="box three"></div>
-        <div class="box one"></div>
+    <div id="content"></div>
 
-        <div class="box two"></div>
-        <div class="box one"></div>
-        <div class="box two"></div>
+    <!-- <script>
+        fetch("https://ci-swapi.herokuapp.com/api/")
+        .then(response => response.json()) // text() / json()
+        .then(data => {
+            document.getElementById("content").innerText = data.starships; // people/planets/films
+        })
+    </script> -->
+    <script>
+        fetch("https://ci-swapi.herokuapp.com/api/")
+            .then(response => response.text()) // text() / json()
+            .then(data => displayData(data))
+            .catch((e) => {
+                console.error("Error:", e);
+                document.getElementById("content").innerText = e;
+            })
 
-        <div class="box three"></div>
-        <div class="box three"></div>
-        <div class="box two"></div>
-    </div>
-    <script type="text/javascript" src="js/script.js"></script>
+        function displayData(data) {
+            document.getElementById("content").innerText = data; // people/planets/films
+        }
+    </script>
 </body>
 
 </html>
